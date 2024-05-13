@@ -1,1 +1,44 @@
 Console.log("Hello git);
+console.log ("Hello');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Table Validation</title>
+</head>
+<body>
+    <h2>SQL Table Entry Form</h2>
+    <form id="sqlForm">
+        <label for="id">ID:</label><br>
+        <input type="text" id="id" name="id" required><br>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('sqlForm').onsubmit = function(e) {
+            e.preventDefault(); // Prevent the form from submitting
+
+            // Validate ID (must be numeric and not empty)
+            var idInput = document.getElementById('id');
+            var nameInput = document.getElementById('name');
+            if (!idInput.value.trim() || isNaN(idInput.value)) {
+                alert('Please enter a valid numeric ID.');
+                return false;
+            }
+
+            // Validate Name (must not be empty)
+            if (!nameInput.value.trim()) {
+                alert('Please enter a name.');
+                return false;
+            }
+
+            // If validation passes, you could proceed with submitting the form or AJAX request
+            alert('Form is valid. Submitting...');
+            // Here you might submit the data to server using AJAX or similar method
+        };
+    </script>
+</body>
+</html>
